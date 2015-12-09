@@ -25,7 +25,7 @@ CREATE TABLE `casedword` (
   `wordid` decimal(6,0) NOT NULL default '0',
   `lemma` varchar(80) binary NOT NULL default '',
   PRIMARY KEY  (`wordid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `categorydef`
@@ -37,7 +37,7 @@ CREATE TABLE `categorydef` (
   `name` varchar(32) default NULL,
   `pos` enum('n','v','a','r','s') default NULL,
   PRIMARY KEY  (`categoryid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `framedef`
@@ -48,7 +48,7 @@ CREATE TABLE `framedef` (
   `frameid` decimal(2,0) NOT NULL default '0',
   `frame` varchar(50) default NULL,
   PRIMARY KEY  (`frameid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `frameref`
@@ -60,7 +60,7 @@ CREATE TABLE `frameref` (
   `wordid` decimal(6,0) NOT NULL default '0',
   `frameid` decimal(2,0) NOT NULL default '0',
   PRIMARY KEY  (`synsetid`,`wordid`,`frameid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `legacy2021`
@@ -73,7 +73,7 @@ CREATE TABLE `legacy2021` (
   `synsetid2` decimal(9,0) NOT NULL,
   `score` decimal(3,0) default NULL,
   PRIMARY KEY  (`mapid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `legacy2030`
@@ -86,7 +86,7 @@ CREATE TABLE `legacy2030` (
   `synsetid2` decimal(9,0) NOT NULL,
   `score` decimal(3,0) default NULL,
   PRIMARY KEY  (`mapid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `legacy2130`
@@ -99,7 +99,7 @@ CREATE TABLE `legacy2130` (
   `synsetid2` decimal(9,0) NOT NULL,
   `score` decimal(3,0) default NULL,
   PRIMARY KEY  (`mapid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `legacysensekey2021`
@@ -110,7 +110,7 @@ CREATE TABLE `legacysensekey2021` (
   `mapid` decimal(6,0) NOT NULL,
   `sensekey` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`mapid`,`sensekey`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `legacysensekey2030`
@@ -121,7 +121,7 @@ CREATE TABLE `legacysensekey2030` (
   `mapid` decimal(6,0) NOT NULL,
   `sensekey` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`mapid`,`sensekey`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `legacysensekey2130`
@@ -132,7 +132,7 @@ CREATE TABLE `legacysensekey2130` (
   `mapid` decimal(6,0) NOT NULL,
   `sensekey` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`mapid`,`sensekey`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `lexlinkref`
@@ -146,7 +146,7 @@ CREATE TABLE `lexlinkref` (
   `word2id` decimal(6,0) NOT NULL default '0',
   `linkid` decimal(2,0) NOT NULL default '0',
   PRIMARY KEY  (`word1id`,`synset1id`,`word2id`,`synset2id`,`linkid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `linkdef`
@@ -158,7 +158,7 @@ CREATE TABLE `linkdef` (
   `name` varchar(50) default NULL,
   `recurses` enum('Y','N') NOT NULL default 'N',
   PRIMARY KEY  (`linkid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `morphdef`
@@ -169,7 +169,7 @@ CREATE TABLE `morphdef` (
   `morphid` decimal(6,0) NOT NULL default '0',
   `lemma` varchar(70) NOT NULL default '',
   PRIMARY KEY  (`morphid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `morphref`
@@ -181,7 +181,7 @@ CREATE TABLE `morphref` (
   `pos` enum('n','v','a','r','s') NOT NULL default 'n',
   `morphid` decimal(6,0) NOT NULL default '0',
   PRIMARY KEY  (`morphid`,`pos`,`wordid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `sample`
@@ -193,7 +193,7 @@ CREATE TABLE `sample` (
   `sampleid` decimal(2,0) NOT NULL default '0',
   `sample` mediumtext NOT NULL,
   PRIMARY KEY  (`synsetid`,`sampleid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `semlinkref`
@@ -205,7 +205,7 @@ CREATE TABLE `semlinkref` (
   `synset2id` decimal(9,0) NOT NULL default '0',
   `linkid` decimal(2,0) NOT NULL default '0',
   PRIMARY KEY  (`synset1id`,`synset2id`,`linkid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `sense`
@@ -220,7 +220,7 @@ CREATE TABLE `sense` (
   `lexid` decimal(2,0) NOT NULL default '0',
   `tagcount` decimal(5,0) default NULL,
   PRIMARY KEY  (`synsetid`,`wordid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `sentencedef`
@@ -231,7 +231,7 @@ CREATE TABLE `sentencedef` (
   `sentenceid` decimal(3,0) NOT NULL default '0',
   `sentence` mediumtext,
   PRIMARY KEY  (`sentenceid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `sentenceref`
@@ -243,7 +243,7 @@ CREATE TABLE `sentenceref` (
   `wordid` decimal(6,0) NOT NULL default '0',
   `sentenceid` decimal(3,0) NOT NULL default '0',
   PRIMARY KEY  (`synsetid`,`wordid`,`sentenceid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `synset`
@@ -256,7 +256,7 @@ CREATE TABLE `synset` (
   `categoryid` decimal(2,0) NOT NULL default '0',
   `definition` mediumtext,
   PRIMARY KEY  (`synsetid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `vnclass`
@@ -267,7 +267,7 @@ CREATE TABLE `vnclass` (
   `classid` decimal(3,0) NOT NULL,
   `class` varchar(64) NOT NULL,
   PRIMARY KEY  (`classid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `vnexampledef`
@@ -278,7 +278,7 @@ CREATE TABLE `vnexampledef` (
   `exampleid` decimal(4,0) NOT NULL,
   `example` varchar(128) NOT NULL,
   PRIMARY KEY  (`exampleid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `vnexampleref`
@@ -289,7 +289,7 @@ CREATE TABLE `vnexampleref` (
   `frameid` decimal(5,0) NOT NULL,
   `exampleid` decimal(4,0) NOT NULL,
   PRIMARY KEY  (`frameid`,`exampleid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `vnframedef`
@@ -305,7 +305,7 @@ CREATE TABLE `vnframedef` (
   `syntax` mediumtext NOT NULL,
   `semantics` mediumtext NOT NULL,
   PRIMARY KEY  (`frameid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `vnframeref`
@@ -320,7 +320,7 @@ CREATE TABLE `vnframeref` (
   `classid` decimal(3,0) NOT NULL,
   `quality` int(2) default NULL,
   PRIMARY KEY  (`framerefid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `vnrole`
@@ -337,7 +337,7 @@ CREATE TABLE `vnrole` (
   `selrestrsid` decimal(2,0) NOT NULL,
   `quality` int(2) default NULL,
   PRIMARY KEY  (`roleid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `vnroletype`
@@ -348,7 +348,7 @@ CREATE TABLE `vnroletype` (
   `roletypeid` decimal(3,0) NOT NULL,
   `type` varchar(32) NOT NULL,
   PRIMARY KEY  (`roletypeid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `vnselrestr`
@@ -360,7 +360,7 @@ CREATE TABLE `vnselrestr` (
   `value` varchar(32) NOT NULL,
   `type` varchar(32) NOT NULL,
   PRIMARY KEY  (`selrestrid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `vnselrestrs`
@@ -371,7 +371,7 @@ CREATE TABLE `vnselrestrs` (
   `selrestrsid` decimal(2,0) NOT NULL,
   `selrestrs` mediumtext,
   PRIMARY KEY  (`selrestrsid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `word`
@@ -382,7 +382,7 @@ CREATE TABLE `word` (
   `wordid` decimal(6,0) NOT NULL default '0',
   `lemma` varchar(80) NOT NULL default '',
   PRIMARY KEY  (`wordid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `wordposition`
@@ -394,7 +394,7 @@ CREATE TABLE `wordposition` (
   `wordid` decimal(6,0) NOT NULL default '0',
   `positionid` enum('a','p','ip') NOT NULL default 'a',
   PRIMARY KEY  (`synsetid`,`wordid`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `xwnparselft`
@@ -407,7 +407,7 @@ CREATE TABLE `xwnparselft` (
   `lft` mediumtext NOT NULL,
   `parsequality` int(1) default NULL,
   `lftquality` int(1) default NULL
-) TYPE=MyISAM;
+) ;
 
 --
 -- Table structure for table `xwnwsd`
@@ -418,7 +418,7 @@ CREATE TABLE `xwnwsd` (
   `synsetid` decimal(9,0) NOT NULL,
   `wsd` mediumtext NOT NULL,
   `text` mediumtext
-) TYPE=MyISAM;
+) ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
